@@ -1,0 +1,11 @@
+{
+  "name": "spaceinvaders",
+  "version": "1.0.0",
+  "description": "space invaders clone to practice not being shity at JS\\",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "skywizard",
+  "license": "ISC"
+}

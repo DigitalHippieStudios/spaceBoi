@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gill Sans MT';
+    margin: auto;
+}
+
+.container {
+    border: solid pink;
+    padding: 25px 25px;
+    margin: 3.5vw 3vw ;
+}
+
+nav {
+
+    padding: 1vh;
+    background-color: crimson;
+
+}
+
+.navbar {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.left_nav {
+    border: solid whitesmoke;
+}
+
+.right_nav {
+    border: solid whitesmoke;
+}
+
+.navbar ul {
+    list-style: none;
+}
+
+.content {
+    border: solid blue;
+    margin: auto;
+    align-content: center;
+    text-align: center;
+}
+
+.game {
+    margin: 15px auto;
+    display: flex;
+    flex-wrap: wrap;
+    border: solid red;
+    width: 305px;
+    height: 305px;
+}
+
+.game div {
+    position: relative;
+    margin: auto;
+    width: 20px;
+    height: 20px;
+    border: solid 1px;
+}
+
+.player {
+    background-color: blueviolet;
+}
+
+.enemy {
+    background-color: yellowgreen;
+    border-radius: 10px;
+}
+
+.boom {
+    background-color: red;
+}
+
+.laser {
+    background-color: orange;
+}
+
+table,
+tr,
+td {
+    border: inset grey 0.5px;
+    border-radius: 5px;
+    display: grid;
+}
+
+table {
+    margin: 5vw 15vw;
+}
+
+tr {
+    grid-template-columns: 50% 50%;
+}
