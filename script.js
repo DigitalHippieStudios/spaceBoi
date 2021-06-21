@@ -42,14 +42,16 @@ document.addEventListener('DOMContentLoaded', () => {
         blocks[currPlayerIndex].classList.add('player');
 
     }
+
     document.addEventListener('keydown', movePlayer);
 
 
     //move the baddies
     moveAliens = (e) => {
         const leftEdge = enemies[0] % width === 0;
-        const rightEdge = enemies[enemies.length - 1] % width === -1;
-
+        const rightEdge = enemies[enemies.length - 1] % width === width - 1;
+        console.log("rightEdge = " + rightEdge);
+        console.log("direction = " + direction);
         //check board edge
         if ((leftEdge && direction === -1) || (rightEdge && direction === 1)) {
             direction = width;
@@ -94,9 +96,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
     enemyId = setInterval(moveAliens, 500);
 
+    shoot = (e) => {
+        let laserId;
+        let currLaserPos = currPlayerIndex;
+
+        //move laser
+        moveLaser = () => {
+            blocks[currLaserPos].classList.remove('laser');
+            currLaserPos -= width;
+            blocks[currLaserPos].classList.add('laser');
+            if (blocks[currLaserPos].classList.add('laser')) {
+                blocks[currLaserPos].classList.contains('enemy');
+                blocks[currLaserPos].classList.remove('enemy');
+                blocks[currLaserPos].classList.add('boom');
+
+                setTimeout(() => blocks[currLaserPos].classList.remove('boom'));
+                clearInterval(laserId);
+
+                const enemiesDown = enemies.indexOf(currLaserPos);
+                takeDown.push(enemiesDown);
+                score++;
+                display.textContent = score;
+            }
+
+            if (currLaserPos < width) {
+                clearInterval(laserId);
+                setTimeout(() => blocks[currLaserPos].classList.remove('laser'), 100)
+
+            }
+
+        }
+        // document.addEventListener('keyup', e => {
+        //     if (e.keyCode === 32) {
+        //         laserId = setInterval(moveLaser, 100);
+        //     }
+        // })
+
+        switch(e.keyCode){
+            case 32:
+                laserId = setInterval(moveLaser, 100);
+                break;
+        }
+
+
+    }
+
 
 
 
 
 
 })
+
+document.addEventListener('keyup', shoot);

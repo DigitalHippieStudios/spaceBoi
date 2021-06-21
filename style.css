@@ -51,6 +51,7 @@ nav {
     border: solid red;
     width: 305px;
     height: 305px;
+    overflow: hidden;
 }
 
 .game div {
@@ -58,7 +59,7 @@ nav {
     margin: auto;
     width: 20px;
     height: 20px;
-    border: solid 1px;
+    border: groove 0.1px ;
 }
 
 .player {
@@ -68,6 +69,7 @@ nav {
 .enemy {
     background-color: yellowgreen;
     border-radius: 10px;
+    
 }
 
 .boom {
